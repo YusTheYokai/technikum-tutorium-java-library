@@ -48,7 +48,7 @@ Nutzer*in wurde erfolgreich hinzugefügt!
 ```
 
 ### User löschen
-Der Admin kann Nutzer\*innen löschen. Hierfür wird der Nutzername benötigt. Sollte der\*die Nutzer*in nicht existieren, soll eine entsprechende Fehlermeldung ausgegeben werden.
+Der Admin kann Nutzer\*innen löschen. Hierfür wird der Nutzername benötigt. Sollte der\*die Nutzer*in nicht existieren, soll eine entsprechende Fehlermeldung ausgegeben werden. Sollte der\*die Nutzer\*in Bücher ausgeliehen haben werden diese vom System zurückgegeben. 
 
 ```
 Möchtest du eine*n Nutzer*in hinzufügen oder löschen?
