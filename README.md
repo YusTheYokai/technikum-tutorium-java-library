@@ -86,6 +86,8 @@ Der Admin kann nach Nutzer*innen oder Büchern suchen. Als Suchbegriff kann der 
 
 Reguläre Nutzer*innen können ebenfalls die Suche verwenden, jedoch dürfen diese nach Büchern suchen!
 
+Die Suche soll case-insensitive sein, Groß- und Kleinschreibung ist somit egal.
+
 Als Ausgabe soll das Ergebnis der read-Methode des Readable-Interfaces verwendet werden.
 
 ```
