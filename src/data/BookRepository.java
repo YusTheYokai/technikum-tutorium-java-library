@@ -31,7 +31,26 @@ public class BookRepository extends Repository<Book> {
      */
     @Override
     public List<Book> search(String searchString) {
-        Predicate<Book> searchPredicate = u -> u.getTitle().contains(searchString) || u.getAuthor().contains(searchString);
+        Predicate<Book> searchPredicate = u -> u.getTitle().toLowerCase().contains(searchString.toLowerCase())
+                || u.getAuthor().toLowerCase().contains(searchString.toLowerCase());
         return findAll().stream().filter(searchPredicate).toList();
+    }
+
+    /**
+     * Findet {@link Book Bücher} anhand des Titels.
+     * @param title der Titel
+     * @return eine Liste aller gefundenen {@link Book Bücher}
+     */
+    public List<Book> findByTitle(String title) {
+        return findAll().stream().filter(b -> b.getTitle().equals(title)).toList();
+    }
+
+    /**
+     * Findet {@link Book Bücher} anhand des Borrowers.
+     * @param borrower {@link User Nutzer*in} der*die Bücher ausgeliehen hat
+     * @return eine Liste aller gefundenen {@link Book Bücher}
+     */
+    public List<Book> findByBorrower(User borrower) {
+        return findAll().stream().filter(b -> borrower.equals(b.getBorrower())).toList();
     }
 }

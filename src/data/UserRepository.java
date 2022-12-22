@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 public class UserRepository extends Repository<User> {
 
     public UserRepository() {
-        save(new User("Admin", "admin", "admin"));
+        save(new User("Admin", "admin", "Start123$", Role.ADMIN));
     }
 
     // /////////////////////////////////////////////////////////////////////////
@@ -21,8 +21,12 @@ public class UserRepository extends Repository<User> {
         if (findAll().stream().anyMatch(u -> u.getUsername().equals(user.getUsername()))) {
             throw new RuntimeException("Nutzername bereits in verwendung!");
         }
-
-        // TODO: Nutzername und Passwort validieren
+        if (user.getUsername().trim().length() < 3) {
+            throw new RuntimeException("Nutzername muss mindestens 3 Zeichen lang sein!");
+        }
+        if (user.getPassword().trim().length() < 8) {
+            throw new RuntimeException("Passwort muss mindestens 8 Zeichen lang sein!");
+        }
 
         super.save(user);
     }
@@ -36,7 +40,8 @@ public class UserRepository extends Repository<User> {
      */
     @Override
     public List<User> search(String searchString) {
-        Predicate<User> searchPredicate = u -> u.getName().contains(searchString) || u.getUsername().contains(searchString);
+        Predicate<User> searchPredicate = u -> u.getName().toLowerCase().contains(searchString.toLowerCase())
+                || u.getUsername().toLowerCase().contains(searchString.toLowerCase());
         return findAll().stream().filter(searchPredicate).toList();
     }
 
