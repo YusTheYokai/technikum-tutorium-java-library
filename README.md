@@ -48,7 +48,7 @@ Nutzer*in wurde erfolgreich hinzugefügt!
 ```
 
 ### User löschen
-Der Admin kann Nutzer\*innen löschen. Hierfür wird der Nutzername benötigt. Sollte der\*die Nutzer*in nicht existieren, soll eine entsprechende Fehlermeldung ausgegeben werden.
+Der Admin kann Nutzer\*innen löschen. Hierfür wird der Nutzername benötigt. Sollte der\*die Nutzer*in nicht existieren, soll eine entsprechende Fehlermeldung ausgegeben werden. Sollte der\*die Nutzer\*in Bücher ausgeliehen haben werden diese vom System zurückgegeben. 
 
 ```
 Möchtest du eine*n Nutzer*in hinzufügen oder löschen?
@@ -84,6 +84,10 @@ Buch wurde erfolgreich hinzugefügt!
 ### Suche
 Der Admin kann nach Nutzer*innen oder Büchern suchen. Als Suchbegriff kann der Name oder Nutzername von Nutzer\*innen oder der Titel oder Autor\*in von Büchern eingegeben werden. Sollte der\*die Nutzer\*in oder das Buch nicht gefunden werden, soll eine entsprechende Meldung ausgegeben werden.  
 
+Reguläre Nutzer*innen können ebenfalls die Suche verwenden, jedoch dürfen diese nach Büchern suchen!
+
+Die Suche soll case-insensitive sein, Groß- und Kleinschreibung ist somit egal.
+
 Als Ausgabe soll das Ergebnis der read-Methode des Readable-Interfaces verwendet werden.
 
 ```
@@ -91,8 +95,8 @@ Willkommen Admin! Was möchtest du tun?
 1. Nutzer*in verwalten
 2. Buch hinzufügen
 3. Suche
-4. Ausloggen
-5. Beenden
+9. Ausloggen
+0. Beenden
 
 >> 3
 
@@ -131,6 +135,7 @@ Ein Buch kann immer nur von einer Nutzer\*in ausgeliehen werden. Sollte versucht
 Willkommen Maximilian! Was möchtest du tun?
 1. Buch ausleihen
 2. Buch zurückgeben
+3. Suche
 9. Ausloggen
 0. Beenden
 
@@ -150,8 +155,9 @@ Sollte ein Buch nach dem Rückgabedatum zurückgegeben werden, soll zusätzlich 
 Willkommen Maximilian! Was möchtest du tun?
 1. Buch ausleihen
 2. Buch zurückgeben
-3. Ausloggen
-4. Beenden
+3. Suche
+9. Ausloggen
+0. Beenden
 
 >> 2
 
@@ -167,4 +173,4 @@ Buch wurde erfolgreich zurückgegeben!
 ### Beenden
 Das Programm wird beendet. Gerne kann hier als Zusatzfeature eingebaut werden, dass alle Änderungen gespeichert werden, z.B. CSV-Datei, und diese beim nächsten Programmstart wieder geladen werden.
 
-_stand 21. Dezember 2022_
+_stand 22. Dezember 2022_
